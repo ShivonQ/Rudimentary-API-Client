@@ -45,17 +45,17 @@ class Rover_Client
   def strip_img_res(res,earth_date)
   all_data = {
       earth_date:earth_date,
-    cam_images:{
-      'Front Hazard Avoidance Camera'=> [],
-      'Rear Hazard Avoidance Camera'=> [],
-      'Mast Camera'=> [],
-      'Chemistry and Camera Complex'=>[],
-      'Mars Hand Lens Imager'=> [],
-      'Mars Descent Imager'=> [],
-      'Navigation Camera'=> [],
-      'Panoramic Camera'=> [],
-      'Miniature Thermal Emission Spectrometer (Mini-TES)'=> []
-    }
+      cam_images:{
+        'Front Hazard Avoidance Camera'=> [],
+        'Rear Hazard Avoidance Camera'=> [],
+        'Mast Camera'=> [],
+        'Chemistry and Camera Complex'=>[],
+        'Mars Hand Lens Imager'=> [],
+        'Mars Descent Imager'=> [],
+        'Navigation Camera'=> [],
+        'Panoramic Camera'=> [],
+        'Miniature Thermal Emission Spectrometer (Mini-TES)'=> []
+      }
   }
   res['photos'].to_a.each do |item|
     puts cam_name = item['camera']['full_name']
@@ -75,8 +75,9 @@ end
       'name'=>res['photo_manifest']['name'],
       'landing_date'=>res['photo_manifest']['landing_date'],
       'launch_date'=>res['photo_manifest']['launch_date'],
-      'status'=>res['photo_manifest']['status'],
+      'max_sol'=>res['photo_manifest']['max_sol'],
       'max_date'=>res['photo_manifest']['max_date'],
+      'status'=>res['photo_manifest']['status'],
       'total_photos'=>res['photo_manifest']['total_photos']
     }
   end
